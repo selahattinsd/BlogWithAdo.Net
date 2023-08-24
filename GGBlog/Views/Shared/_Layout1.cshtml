@@ -1,0 +1,78 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tiny.cloud/1/2c39kqgo0bq662t973lmq4s4j9j6cnisoilr5mnvb21kv9zf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Blog SD - Aklım Bir Karış Havada</title>
+    <!-- Favicon-->
+    <link rel="icon" type="/image/x-icon" href="~/img/ikon.png?v1" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css?v1" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       
+        <div class="container px-2 px-lg-3">
+            <a><img src="img/ikon.png" style="margin-right:20px;"></a> <br />
+            <a class="navbar-brand" href="#!" style="font-family:Georgia, 'Times New Roman', Times, serif">Aklım Bir Karış Havada</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="IcerikEkle">Blog Ekle</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategoriler</a>
+                        
+                        @RenderSection("Cats", false)
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Ara" aria-label="Search" asp-controller="Home" asp-action="Ara">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" asp-controller="Home" asp-action="Ara">Ara</button>
+                        </form>
+                    </li>
+                </ul>
+                <a href="/Account/Login">  <button class="btn btn-outline-dark">Giriş</button></a>
+
+
+                <a href="/Account/KayıtOl"> <button class="btn btn-outline-dark" type="submit">Kayıt</button></a>
+  
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">"Aklım Bir Karış Havada"</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Diyorsan sende aramıza katıl havada kalmasın.</p>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+
+  
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Aklım Bir Karış Havada Website 2023</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script>   
+    tinymce.init({
+    selector: 'textarea'
+        });
+        </script>
+
+  
+</body>
+</html>

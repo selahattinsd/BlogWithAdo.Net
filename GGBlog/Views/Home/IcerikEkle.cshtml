@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "İçerik Ekle";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<p>@ViewBag.username</p>
+
+<form method="post" autocomplete="off" asp-action="IcerikEkle" asp-controller="Home">
+    <input name="Title" type="text" placeholder="Başlık" required /><br />
+    <input name="Slug" type="text" placeholder="Slug" required /><br />
+    <textarea name="Summary" placeholder="Özet" ></textarea><br />
+    <textarea name="Content" placeholder="İçerik" ></textarea><br />
+    <input type="submit" value="Ekle"  />
+</form>

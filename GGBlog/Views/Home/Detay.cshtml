@@ -1,0 +1,115 @@
+﻿@model GGBlog.Models.BlogPostDetail
+@{
+    ViewData["Title"] = Model.title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+  @*@section Cats {
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @foreach (var item in )
+            {
+                <li><a class="dropdown-item" href="#">@item</a></li>
+            }
+            
+        </ul>
+    }*@
+
+<div class="container">
+    <div class="row">   
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2 class="post-title" style="font-size:70px;">@Model.title</h2>
+          
+        </div>
+          <div class="col-md-3"></div>
+    </div>
+</div>
+<div class="container">   
+    <div class="row">   
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+             <div class="blog-post">
+  
+  <p class="post-date">Eklenme tarihi : @Model.created_on - @DateTime.Now</p>
+
+  <p class="post-content">@Html.Raw(@Model.content)</p>
+</div>
+        </div>
+        <div class="col-md-2"> </div>
+
+      
+
+    </div>
+</div>
+@if (Model.Comments != null)
+{
+    @foreach (var item in Model.Comments)
+    {
+        <p>@item.comment</p>
+    }
+}
+@*<div class="col-md-10" style=" margin:auto;">
+    <div class="container">
+        <div class="row">
+            <div class="comment-body" style="font-size:5vh;"><h3 style="margin-top:3vh;">Yorumlar</h3></div>
+            <ul class="comment-list" style="margin-top:3vh;">
+                @if (Model.CommentModels.Count > 0)
+                {
+                    @foreach (var item in Model.Comments)
+                    {
+                        @if (item.IsActive)
+                        {
+                            <li class="comment">
+                                <div class="comment-body">
+                                    <h3>@item.Name</h3>
+                                    <div class="meta"> @item.CommentDate</div>
+                                    <p>@item.Comments</p>
+                                    <hr />
+                                </div>
+                            </li>
+                        }
+                    }
+                }
+                else
+                {
+                    <li class="comment">
+                        <div class="comment-body">
+                            <p>Henüz Yorum Yok</p>
+                            <hr />
+                        </div>
+                    </li>
+                }*@
+            </ul>
+
+            <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Yorumla </h3>
+
+                <form asp-action="PostComment" asp-controller="olagansiir" method="post">
+
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="Name" required placeholder="İsim Soyisim" rows="3">
+                    </div>
+
+                    <div class="mb-3">
+                        <input class="form-control" type="email" name="Email" required placeholder="Email" rows="3">
+                    </div>
+
+                    <div class="mb-3">
+                        <input class="form-control" type="hidden" name="TextId" value="@ViewBag.Model.Id">
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control" required name="Comments" placeholder="Yorum" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+
+                    <div class="form-group" style="margin-top:2vh;">
+                        <input type="submit" value="Gönder" class="btn btn-primary btn-md">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
