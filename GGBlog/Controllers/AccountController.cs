@@ -9,7 +9,7 @@ namespace GGBlog.Controllers
 
     public class AccountController : Controller
     {
-        public string connectionString = " Server = 104.247.162.242\\MSSQLSERVER2017;Database=akadem58_sd;User Id = akadem58_sd; Password=****!96;";
+        public string connectionString = " Server = ;Database=;User Id = ; Password=;";
 
         public IActionResult Login()
         {
